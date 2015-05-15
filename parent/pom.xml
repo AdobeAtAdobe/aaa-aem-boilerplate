@@ -1,0 +1,460 @@
+<?xml version="1.0"?><!--
+  Copyright 1997-2009 Day Management AG
+  Barfuesserplatz 6, 4001 Basel, Switzerland
+  All Rights Reserved.
+
+  This software is the confidential and proprietary information of
+  Day Management AG, ("Confidential Information"). You shall not
+  disclose such Confidential Information and shall use it only in
+  accordance with the terms osenf the license agreement you entered into
+  with Day.
+ -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ======================================================================= -->
+    <!-- P R O J E C T                                                           -->
+    <!-- ======================================================================= -->
+
+    <groupId>com.adobe.aaa</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>AEM Boilerplate Parent Application</name>
+    <description>The parent application is where we manage most of the data for building the project, the developer info, repos, properties and dependency management.  This project was modeled off a 6.1 application.  I left some examples in here for demonstration use and they might not fit your environment at all.</description>
+    <inceptionYear>2015</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>dbenge</id>
+            <name>David Benge</name>
+            <email>dbenge@adobe.com</email>
+            <organization>adobeAtadobe</organization>
+            <timezone>-8</timezone>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>maellis</id>
+            <name>Mark Ellis</name>
+            <email>maellis@adobe.com</email>
+            <organization>adobeAtadobe</organization>
+            <timezone>+5</timezone>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>dyland</id>
+            <name>Dylan DePass</name>
+            <email>dyland@adobe.com</email>
+            <organization>adobeAtadobe</organization>
+            <timezone>+5</timezone>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <properties>
+        <crx.host>localhost</crx.host>
+        <crx.port>4502</crx.port>
+        <crx.username>admin</crx.username>
+        <crx.password>admin</crx.password>
+        <publish.crx.host>localhost</publish.crx.host>
+        <publish.crx.port>4503</publish.crx.port>
+        <publish.crx.username>admin</publish.crx.username>
+        <publish.crx.password>admin</publish.crx.password>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.site.skip>true</maven.site.skip>
+        <maven.site.deploy.skip>true</maven.site.deploy.skip>
+    </properties>
+
+    <!-- ======================================================================= -->
+    <!-- REPOSITORIES                                                            -->
+    <!-- ======================================================================= -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>http://nexus.bsl.eur.adobe.com/content/groups/development-repositories/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>public</id>
+            <url>http://nexus.bsl.eur.adobe.com/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>cq release</id>
+            <url>http://nexus.bsl.eur.adobe.com/content/repositories/releases/</url>
+        </repository>
+
+        <repository>
+            <id>adobe-public-releases</id>
+            <name>Adobe Basel Public Repository</name>
+            <url>http://repo.adobe.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>nexus-releases</id>
+            <name>Adobe Basel Nexus Repository</name>
+            <url>http://nexus.bsl.eur.adobe.com/content/groups/development-repositories</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <url>http://nexus.bsl.eur.adobe.com/content/groups/development-repositories/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>adobe-public-releases</id>
+            <name>Adobe Basel Public Repository</name>
+            <url>http://repo.adobe.com/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <!-- ====================================================================== -->
+    <!-- B U I L D                                                              -->
+    <!-- ====================================================================== -->
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-scr-plugin</artifactId>
+                    <version>1.17.0</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-simple</artifactId>
+                            <version>1.5.2</version>
+                        </dependency>
+                    </dependencies>
+                    <executions>
+                        <execution>
+                            <id>generate-scr-scrdescriptor</id>
+                            <goals>
+                                <goal>scr</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>2.4.0</version>
+                    <inherited>true</inherited>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>2.6</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.14.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.9</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.sling</groupId>
+                    <artifactId>maven-sling-plugin</artifactId>
+                    <version>2.1.0</version>
+                    <configuration>
+                        <user>${crx.username}</user>
+                        <password>${crx.password}</password>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.day.jcr.vault</groupId>
+                    <artifactId>content-package-maven-plugin</artifactId>
+                    <version>0.0.20</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <failOnError>true</failOnError>
+                        <userId>${crx.username}</userId>
+                        <password>${crx.password}</password>
+                    </configuration>
+                </plugin>
+                <!--This plugin's configuration is used to store Eclipse
+                    m2e settings only. It has no influence on the Maven build itself. -->
+                <plugin>
+                    <groupId>org.eclipse.m2e</groupId>
+                    <artifactId>lifecycle-mapping</artifactId>
+                    <version>1.0.0</version>
+                    <configuration>
+                        <lifecycleMappingMetadata>
+                            <pluginExecutions>
+                                <pluginExecution>
+                                    <pluginExecutionFilter>
+                                        <groupId>
+                                            org.apache.felix
+                                        </groupId>
+                                        <artifactId>
+                                            maven-scr-plugin
+                                        </artifactId>
+                                        <versionRange>
+                                            [1.0.0,)
+                                        </versionRange>
+                                        <goals>
+                                            <goal>scr</goal>
+                                        </goals>
+                                    </pluginExecutionFilter>
+                                    <action>
+                                        <ignore/>
+                                    </action>
+                                </pluginExecution>
+                            </pluginExecutions>
+                        </lifecycleMappingMetadata>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- ====================================================================== -->
+    <!-- D E P E N D E N C I E S                                                -->
+    <!-- ====================================================================== -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- DEPENDENCIES USED BY SOME CHILDREN.  
+            Children do not include the scope or version that is controlled here. 
+            Keeping the versions consistient helps during upgrade projects and help avoid version conflicts.
+            THIS IS AN EXAMPLE - Alter to fit your use
+            -->
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.commons.json</artifactId>
+                <version>2.0.10</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.api</artifactId>
+                <version>2.9.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.day.cq.wcm</groupId>
+                <artifactId>cq-wcm-commons</artifactId>
+                <version>5.8.10</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.scripting.jsp</artifactId>
+                <version>2.1.6</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.day.cq</groupId>
+                <artifactId>cq-search</artifactId>
+                <version>5.8.22</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.jcr.jcr-wrapper</artifactId>
+                <version>2.0.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.core</artifactId>
+                <version>4.3.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.6</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.day.cq</groupId>
+                <artifactId>cq-commons</artifactId>
+                <version>5.6.2</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.day.cq.wcm</groupId>
+                <artifactId>cq-wcm-api</artifactId>
+                <version>5.6.6</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.day.cq</groupId>
+                <artifactId>cq-tagging</artifactId>
+                <version>5.8.20</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.scr</artifactId>
+                <version>1.8.3-R1658944</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>org.apache.sling.jcr.resource</artifactId>
+                <version>2.5.0</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.day.commons.osgi.wrapper</groupId>
+                <artifactId>com.day.commons.osgi.wrapper.commons-lang2</artifactId>
+                <version>2.5-0001</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.day.cq.dam</groupId>
+                <artifactId>cq-dam-api</artifactId>
+                <version>5.8.26</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2.1</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.4</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.day.cq.dam</groupId>
+                <artifactId>cq-dam-handler</artifactId>
+                <version>5.8.22</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.ocpsoft.prettytime</groupId>
+                <artifactId>prettytime</artifactId>
+                <version>3.2.7.Final</version>
+            </dependency>
+
+            <!--ACS AEM Commons -->
+            <dependency>
+                <groupId>com.adobe.acs</groupId>
+                <artifactId>acs-aem-commons-content</artifactId>
+                <version>1.9.2</version>
+                <type>content-package</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- DEPENDENCIES USED ACROSS ALL CHILDREN
+        Any dependency you need included on every child module you put here
+         -->
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr.annotations</artifactId>
+            <version>1.9.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>biz.aQute</groupId>
+            <artifactId>bndlib</artifactId>
+            <version>1.50.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>

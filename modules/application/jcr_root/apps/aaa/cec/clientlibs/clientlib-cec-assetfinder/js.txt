@@ -1,0 +1,5 @@
+#base=js
+
+main.js
+main.dnd.js
+multiimage.dnd.js

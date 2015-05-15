@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/oak:index/thing_propertyName" mode="update"/>
+    <filter root="/apps/aaa/cec/appconfig" mode="update"/>
+</workspaceFilter>

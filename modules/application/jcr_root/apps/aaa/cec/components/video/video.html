@@ -1,0 +1,15 @@
+<div data-sly-use.videoComponent="apps.aaa.cec.components.video.VideoComponent" data-sly-unwrap>
+    <video preload="auto" class="video-js vjs-default-skin vjs-big-play-centered"
+           autoplay="false" data-sly-attribute.autoplay="${properties.autoplay}"
+           loop="true" data-sly-attribute.loop="${properties.loopVideo}"
+           controls="true" data-sly-attribute.controls="${properties.showControls}"
+           poster="http://video-js.zencoder.com/oceans-clip.png" data-sly-attribute.poster="${properties.posterImage}">
+        <source src="${videoComponent.videoBasePath}" type='video/mp4' />
+        <!-- TODO:// fix and add in encoding options for webm and ogg -->
+        <!-- TODO:// add in way point support -->
+        <!-- TODO:// add in tracking-->
+        <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+        <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+        <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+</div>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/content/cec"/>
+    <filter root="/content/dam/cec/" mode="update"/>
+    <filter root="/etc/tags/thing" mode="update"/>
+    <filter root="/etc/tags/product" mode="update"/>
+</workspaceFilter>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Template"
+        allowedPaths="[/content/cec/things(/.*)?"
+        jcr:description="Pull Quote Template"
+        jcr:title="Pull Quote">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        jcr:title="pull quote"
+        sling:resourceType="aaa/cec/pages/thing"
+        pageTitle="pull quote"
+        cq:tags="[thing:pull-quote]">
+        <type jcr:primaryType="nt:unstructured"
+              sling:resourceType="aaa/cec/components/thing_type_selector"/>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/parsys">
+                <url
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aaa/cec/components/thing/url"
+                    url="url undefined"
+                    thingPropertyTitle="Pull quote url"
+                    thingPropertyName = "pullQuoteUrl"/>
+                <source-text
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aaa/cec/components/thing/source_text"
+                    sourcetext="source text undefined"
+                    thingPropertyTitle="Quote source"
+                    thingPropertyName = "quoteSource"/>
+                <quote
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aaa/cec/components/thing/quote_text"
+                    quote="quote text undefined"
+                    thingPropertyTitle="Quote text"
+                    thingPropertyName = "quote"/>
+        </content>
+    </jcr:content>
+</jcr:root>

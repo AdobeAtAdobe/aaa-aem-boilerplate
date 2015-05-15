@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Template"
+          allowedPaths="[/content/cec/things(/.*)?"
+          jcr:description="Industry Template"
+          jcr:title="Industry">
+    <jcr:content
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Industry"
+        sling:resourceType="aaa/cec/pages/thing"
+        pageTitle="Industry"
+        cq:tags="[thing:industry]">
+        <type jcr:primaryType="nt:unstructured"
+              sling:resourceType="aaa/cec/components/thing_type_selector"/>
+        <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/parsys">
+                <main-page-url
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aaa/cec/components/thing/url"
+                    thingPropertyTitle="Main Page Url"
+                    thingPropertyName = "mainPageUrl"/>
+                <description
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aaa/cec/components/thing/textarea"
+                    thingPropertyTitle="Description"
+                    thingPropertyName = "description"/>
+                <tag-line
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aaa/cec/components/thing/text"
+                    thingPropertyTitle="Tagline"
+                    thingPropertyName = "tagline"/>
+                <quotes
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aaa/cec/components/thing/associated_items"
+                    thingPropertyTitle="Associated pull quotes"
+                    thingPropertyName = "pullQuotes"/>
+                <product-videos
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="aaa/cec/components/thing/associated_video_items"
+                    thingPropertyTitle="Product videos"
+                    thingPropertyName = "productVideos"/>
+        </content>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/aaa/cec"/>
+    <filter root="/apps/foundation" mode="update"/>
+    <filter root="/etc/designs/cec" />
+    <filter root="/etc/clientcontext/cec"/>
+    <filter root="/etc/segmentation/cec"/>
+    <!-- do not include libs/foundation/global.jsp that's for dev resolution-->
+</workspaceFilter>

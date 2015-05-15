@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"
+      data-sly-use.wcmInit="initwcm.js"
+      data-sly-use.headlibRenderer="headlibs.html">
+    <css data-sly-call="${clientLib.all @ categories=['apps.cec.all']}" data-sly-unwrap/>
+    <css data-sly-call="${clientLib.all @ categories=['apps.cec.content']}" data-sly-unwrap/>
+</head>
+<body class="coral--light">
+<div data-sly-include="header.html" data-sly-unwrap></div>
+
+<div data-sly-include="content.html" class="page-content"></div>
+
+<div data-sly-resource="${'cloudservices' @ resourceType='cq/cloudserviceconfigs/components/servicecomponents'}" data-sly-unwrap></div>
+</body>
+</html>
