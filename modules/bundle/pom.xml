@@ -51,6 +51,8 @@
                 <configuration>
                     <instructions>
                         <Export-Package>
+                            <!--Add in any namespaces or classes that you are exporting for code outside this bundle to use here.
+                            If you don't export it nothing else outside of this bundle can use it.-->
                             com.adobe.aaa.cec.thing.api.*,
                             org.ocpsoft.prettytime.*
                         </Export-Package>

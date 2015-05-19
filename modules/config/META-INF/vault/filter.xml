@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- make sure to update these values if add in new paths that need to be included in the project structure.
+ In this example I have included a custom OAK index for a new property name we needed to search against.  Don't forget that if
+ your searching for custom properties that you have added you need to add an OAK index or your performance will suffer.-->
 <workspaceFilter version="1.0">
     <filter root="/oak:index/thing_propertyName" mode="update"/>
     <filter root="/apps/aaa/cec/appconfig" mode="update"/>

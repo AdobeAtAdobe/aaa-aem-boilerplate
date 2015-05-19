@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- make sure to update these values if add in new paths that need to be included in the project structure -->
 <workspaceFilter version="1.0">
     <filter root="/apps/aaa/cec"/>
     <filter root="/apps/foundation" mode="update"/>

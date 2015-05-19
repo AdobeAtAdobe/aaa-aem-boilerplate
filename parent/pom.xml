@@ -84,17 +84,6 @@
     <!-- ======================================================================= -->
     <repositories>
         <repository>
-            <id>central</id>
-            <url>http://nexus.bsl.eur.adobe.com/content/groups/development-repositories/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
             <id>public</id>
             <url>http://nexus.bsl.eur.adobe.com/content/groups/public/</url>
             <releases>
@@ -130,6 +119,17 @@
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>central</id>
+            <url>http://nexus.bsl.eur.adobe.com/content/groups/development-repositories/</url>
+            <releases>
+                <enabled>true</enabled>
             </releases>
             <snapshots>
                 <enabled>true</enabled>
@@ -434,7 +434,7 @@
             <dependency>
                 <groupId>com.adobe.acs</groupId>
                 <artifactId>acs-aem-commons-content</artifactId>
-                <version>1.9.2</version>
+                <version>1.9.4</version>
                 <type>content-package</type>
             </dependency>
         </dependencies>

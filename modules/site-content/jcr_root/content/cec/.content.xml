@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" jcr:primaryType="cq:Page">
+<jcr:content
+        cq:cloudserviceconfigs="[/etc/cloudservices/msft-translation/msft_trial]"
+        cq:allowedTemplates="[/apps/aaa/cec/templates/.*]"
+        cq:designPath="/etc/designs/cec"
+        cq:template="/apps/aaa/cec/templates/homepage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="CEC"
+        sling:resourceType="aaa/cec/pages/home"
+        pageTitle="CEC Home">
+            <search
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/search"
+                noResultsText="No results found"
+                searchIn="/content/cec/things"/>
+</jcr:content>
+</jcr:root>
