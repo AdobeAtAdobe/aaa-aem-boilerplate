@@ -98,6 +98,11 @@
                                 <goals>
                                     <goal>install</goal>
                                 </goals>
+                                <configuration>
+                                    <targetURL>http://${author.crx.host}:${author.crx.port}/crx/packmgr/service.jsp</targetURL>
+                                    <userId>${author.crx.username}</userId>
+                                    <password>${author.crx.password}</password>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
@@ -105,6 +110,9 @@
             </build>
         </profile>
 
+        <!-- ====================================================================== -->
+        <!-- P R O F I L E S                                                        -->
+        <!-- ====================================================================== -->
         <profile>
             <id>autoInstallDefaultContentPublish</id>
             <build>

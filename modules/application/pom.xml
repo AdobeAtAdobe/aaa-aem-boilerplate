@@ -93,6 +93,9 @@
         </plugins>
     </build>
 
+    <!-- ====================================================================== -->
+    <!-- P R O F I L E S                                                        -->
+    <!-- ====================================================================== -->
     <profiles>
         <profile>
             <id>autoInstallApplication</id>
@@ -108,6 +111,11 @@
                                 <goals>
                                     <goal>install</goal>
                                 </goals>
+                                <configuration>
+                                    <targetURL>http://${author.crx.host}:${author.crx.port}/crx/packmgr/service.jsp</targetURL>
+                                    <userId>${author.crx.username}</userId>
+                                    <password>${author.crx.password}</password>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>

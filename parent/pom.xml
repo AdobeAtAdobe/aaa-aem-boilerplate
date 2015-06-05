@@ -67,16 +67,19 @@
     <properties>
         <crx.host>localhost</crx.host>
         <crx.port>4502</crx.port>
-        <crx.username>admin</crx.username>
-        <crx.password>admin</crx.password>
+        <crx.packagemanager.endpoint>/crx/packmgr/service.jsp</crx.packagemanager.endpoint>
+
         <publish.crx.host>localhost</publish.crx.host>
         <publish.crx.port>4503</publish.crx.port>
         <publish.crx.username>admin</publish.crx.username>
         <publish.crx.password>admin</publish.crx.password>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.site.skip>true</maven.site.skip>
-        <maven.site.deploy.skip>true</maven.site.deploy.skip>
+
+        <author.crx.host>localhost</author.crx.host>
+        <author.crx.port>4502</author.crx.port>
+        <author.crx.username>admin</author.crx.username>
+        <author.crx.password>admin</author.crx.password>
+
+        <content.dir>${project.build.directory}/classes/jcr_root</content.dir>
     </properties>
 
     <!-- ======================================================================= -->
