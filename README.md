@@ -1,4 +1,4 @@
-# aem-boilerplate
+# Adobe At Adobe AEM project boilerplate
 <p>This is our Adobe At Adobe AEM boilerplate for new projects.  This boilerplate builds on the maven multi module archetype and some of the published Adobe standards.  This is our boilerplate based on our preferences within our team. </p>
 
 <p>This project is modeled off a project we are doing for the customer experience center.  I have left some code in the project to server as examples of what goes where.</p>
