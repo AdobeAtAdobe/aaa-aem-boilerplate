@@ -36,7 +36,7 @@
     <description>Boilerplate Bundle where we include our servlets and all that fun stuff</description>
 
     <!-- ====================================================================== -->
-    <!-- B U I L D   D E F I N I T I O N                                        -->
+    <!-- B A S E   B U I L D   D E F I N I T I O N                              -->
     <!-- ====================================================================== -->
     <build>
         <plugins>
@@ -57,14 +57,6 @@
                             org.ocpsoft.prettytime.*
                         </Export-Package>
                     </instructions>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.sling</groupId>
-                <artifactId>maven-sling-plugin</artifactId>
-                <configuration>
-                    <slingUrl>http://${crx.host}:${crx.port}/apps/aaa/cec/install</slingUrl>
-                    <usePut>true</usePut>
                 </configuration>
             </plugin>
             <plugin>
@@ -90,6 +82,10 @@
                     <plugin>
                         <groupId>org.apache.sling</groupId>
                         <artifactId>maven-sling-plugin</artifactId>
+                        <configuration>
+                            <slingUrl>http://${author.crx.host}:${author.crx.port}/apps/aaa/cec/install</slingUrl>
+                            <usePut>true</usePut>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>install-bundle</id>

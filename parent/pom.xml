@@ -65,21 +65,18 @@
     </developers>
 
     <properties>
-        <crx.host>localhost</crx.host>
-        <crx.port>4502</crx.port>
-        <crx.packagemanager.endpoint>/crx/packmgr/service.jsp</crx.packagemanager.endpoint>
-
-        <publish.crx.host>localhost</publish.crx.host>
+        <publish.crx.host>192.168.99.100</publish.crx.host>
         <publish.crx.port>4503</publish.crx.port>
         <publish.crx.username>admin</publish.crx.username>
         <publish.crx.password>admin</publish.crx.password>
 
-        <author.crx.host>localhost</author.crx.host>
+        <author.crx.host>192.168.99.100</author.crx.host>
         <author.crx.port>4502</author.crx.port>
         <author.crx.username>admin</author.crx.username>
         <author.crx.password>admin</author.crx.password>
 
         <content.dir>${project.build.directory}/classes/jcr_root</content.dir>
+        <crx.packagemanager.endpoint>/crx/packmgr/service.jsp</crx.packagemanager.endpoint>
     </properties>
 
     <!-- ======================================================================= -->
@@ -87,82 +84,19 @@
     <!-- ======================================================================= -->
     <repositories>
         <repository>
-            <id>public</id>
-            <url>http://nexus.bsl.eur.adobe.com/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>cq release</id>
-            <url>http://nexus.bsl.eur.adobe.com/content/repositories/releases/</url>
-        </repository>
-
-        <repository>
-            <id>adobe-public-releases</id>
-            <name>Adobe Basel Public Repository</name>
-            <url>http://repo.adobe.com/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>nexus-releases</id>
-            <name>Adobe Basel Nexus Repository</name>
-            <url>http://nexus.bsl.eur.adobe.com/content/groups/development-repositories</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>central</id>
-            <url>http://nexus.bsl.eur.adobe.com/content/groups/development-repositories/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+            <id>adobe</id>
+            <name>Adobe Public Repository</name>
+            <url>http://repo.adobe.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <id>central</id>
-            <url>http://nexus.bsl.eur.adobe.com/content/groups/development-repositories/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-
-        <pluginRepository>
-            <id>adobe-public-releases</id>
-            <name>Adobe Basel Public Repository</name>
-            <url>http://repo.adobe.com/nexus/content/groups/public</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
+            <id>adobe</id>
+            <name>Adobe Public Repository</name>
+            <url>http://repo.adobe.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
         </pluginRepository>
     </pluginRepositories>
 
@@ -233,8 +167,8 @@
                     <artifactId>maven-sling-plugin</artifactId>
                     <version>2.1.0</version>
                     <configuration>
-                        <user>${crx.username}</user>
-                        <password>${crx.password}</password>
+                        <user>${author.crx.username}</user>
+                        <password>${author.crx.password}</password>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -244,8 +178,8 @@
                     <extensions>true</extensions>
                     <configuration>
                         <failOnError>true</failOnError>
-                        <userId>${crx.username}</userId>
-                        <password>${crx.password}</password>
+                        <userId>${author.crx.username}</userId>
+                        <password>${author.crx.password}</password>
                     </configuration>
                 </plugin>
                 <!--This plugin's configuration is used to store Eclipse
@@ -304,14 +238,14 @@
             <dependency>
                 <groupId>org.apache.sling</groupId>
                 <artifactId>org.apache.sling.api</artifactId>
-                <version>2.9.0</version>
+                <version>2.8.0</version>
                 <scope>provided</scope>
             </dependency>
 
             <dependency>
                 <groupId>com.day.cq.wcm</groupId>
                 <artifactId>cq-wcm-commons</artifactId>
-                <version>5.8.10</version>
+                <version>5.6.4</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -325,7 +259,7 @@
             <dependency>
                 <groupId>com.day.cq</groupId>
                 <artifactId>cq-search</artifactId>
-                <version>5.8.22</version>
+                <version>5.6.4</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -374,14 +308,14 @@
             <dependency>
                 <groupId>com.day.cq</groupId>
                 <artifactId>cq-tagging</artifactId>
-                <version>5.8.20</version>
+                <version>5.6.4</version>
                 <scope>provided</scope>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>org.apache.felix.scr</artifactId>
-                <version>1.8.3-R1658944</version>
+                <version>1.6.0</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -402,7 +336,7 @@
             <dependency>
                 <groupId>com.day.cq.dam</groupId>
                 <artifactId>cq-dam-api</artifactId>
-                <version>5.8.26</version>
+                <version>5.6.6</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -423,7 +357,7 @@
             <dependency>
                 <groupId>com.day.cq.dam</groupId>
                 <artifactId>cq-dam-handler</artifactId>
-                <version>5.8.22</version>
+                <version>5.6.6</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -450,14 +384,13 @@
         <dependency>
             <groupId>org.apache.felix</groupId>
             <artifactId>org.apache.felix.scr.annotations</artifactId>
-            <version>1.9.8</version>
+            <version>1.9.6</version>
         </dependency>
 
         <dependency>
             <groupId>biz.aQute</groupId>
             <artifactId>bndlib</artifactId>
             <version>1.50.0</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
