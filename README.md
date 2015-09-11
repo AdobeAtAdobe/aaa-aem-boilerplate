@@ -54,7 +54,7 @@
 ```
 
 <h2>Adobe-Marketing-Cloud/aem-project-archetype</h2>
-Another tool you can use to get started on your project is the AEM Project Archetype.  It's a great newer effort from our Adobe engineering team and looks like it has potential to be very helpful.  Its a Maven template to create a new AEM project as starting point to develop your own functionality. I have not used it yet but I plan to evaluate it here very soon to see if its a better starting point than our boilerplate.  If its not a better starting point I will list the gaps between it and the boilerplate.
+Another tool you can use to get started on your project is the AEM Project Archetype.  It's a newer effort from our Adobe engineering team and looks like it has potential to be very helpful.  Its a Maven template to create a new AEM project as starting point to develop your own functionality. I have not used it yet but I plan to evaluate it very soon to see if its a better starting point than our boilerplate.  If its not a better starting point I will list the gaps between it and the boilerplate.
 https://github.com/Adobe-Marketing-Cloud/aem-project-archetype
 
 <h2>Whats different from the maven multi module archetype</h2>
