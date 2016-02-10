@@ -1,4 +1,5 @@
 # Adobe At Adobe AEM project boilerplate
+![TrackingImage](https://adobeatadobe.d1.sc.omtrdc.net/b/ss/adbeaaagit/1/H.27.5--NS/0?AQB=1&ndh=1&ce=UTF-8&ns=adobeatadobe&pageName=github%3Aaaa-aem-boilerplate%3Areadme&g=%2FAdobeAtAdobe%2Faaa-aem-boilerplate&ch=github "TrackingImage")
 <p>This is our Adobe At Adobe AEM boilerplate for new projects.  This boilerplate builds on the maven multi module archetype and some of the published Adobe standards.  This is our boilerplate based on our preferences within our team. </p>
 
 <p>This project is modeled off a project we are doing for the customer experience center.  I have left some code in the project to server as examples of what goes where.</p>
